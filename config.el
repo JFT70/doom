@@ -109,6 +109,10 @@
   (setq lsp-ui-doc-enable t)        ;; Show documentation in a separate window
   (setq lsp-ui-peek-enable t)       ;; Enable peek feature
   (setq lsp-ui-flycheck-enable t)   ;; Show flycheck errors
+  (setq lsp-ui-sideline-show-diagnostics t)
+  (setq lsp-ui-sideline-show-hover t)
+  (setq lsp-ui-sideline-show-code-actions t)
+  (setq lsp-ui-sideline-update-mode 'line)
 
   ;; Set keybindings for lsp-ui features
   (map! :leader

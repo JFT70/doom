@@ -52,3 +52,5 @@
 (package! lsp-ui)
 
 (package! rustic)
+
+(package! flycheck)
