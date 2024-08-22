@@ -1,0 +1,42 @@
+#+title: Org Mode Infos
+
+* Shortcuts
+
+| Function          | keystroke   |
+| ----------------  | ----------- |
+| Promote Heading   | meta-h      |
+| Demote Heading    | meta-l      |
+| Move Heading Up   | meta-up     |
+| Move Heading Down | meta-down   |
+|                   |             |
+
+* Heading 1
+** Heading 2
+
+*** Heading 3
+
+**** Heading 4
+
+***** Heading 5
+
+****** Heading 6
+
+******* Heading 7
+
+******** Heading 8
+
+
+* Blocks
+#+begin_example
+
+#+end_example
+
+"<s" then tab to insert code block
+
+#+begin_src rust
+fn a_function(a: String) {
+    println!("I'm just a function");
+}
+#+end_src
+
+#+RESULTS:

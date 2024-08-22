@@ -122,16 +122,38 @@
 
 (setq warning-minimum-level 'error)
 
+;;
+;; Org-Mode Configuration
 (after! org
+
   (map! :map org-mode-map
         :n "M-j" #'org-metadown
         :n "M-l" #'org-metaup)
-  (set-face-attribute 'org-level-1 nil :height 1.8)
-  (set-face-attribute 'org-level-2 nil :height 1.6)
-  (set-face-attribute 'org-level-3 nil :height 1.4)
-  (set-face-attribute 'org-level-4 nil :height 1.2)
-  (set-face-attribute 'org-level-5 nil :height 1.1))
 
-;; "⛬☄☆☯♉"
+  (cond
+   ((eq system-type 'darwin)
+    (set-face-attribute 'org-level-1 nil :height 2.5 :family "Zapfino")
+    (set-face-attribute 'org-level-2 nil :height 2.5 :family "Apple Chancery")
+    (set-face-attribute 'org-level-3 nil :height 1.9 :family "Palatino")
+    (set-face-attribute 'org-level-4 nil :height 1.7 :family "Times New Roman" :weight 'bold)
+    (set-face-attribute 'org-level-5 nil :height 1.5 :family "Times New Roman" :weight 'bold)
+    (set-face-attribute 'org-level-6 nil :height 1.3 :family "Times New Roman" :slant 'italic)
+    (set-face-attribute 'org-level-7 nil :height 1.2 :family "Times New Roman")
+    (set-face-attribute 'org-level-8 nil :height 1.1 :family "Arial"))
+   (t
+    (set-face-attribute 'org-level-1 nil :height 2.5)
+    (set-face-attribute 'org-level-2 nil :height 2.5)
+    (set-face-attribute 'org-level-3 nil :height 1.9)
+    (set-face-attribute 'org-level-4 nil :height 1.7)
+    (set-face-attribute 'org-level-5 nil :height 1.5)
+    (set-face-attribute 'org-level-6 nil :height 1.3)
+    (set-face-attribute 'org-level-7 nil :height 1.2)
+    (set-face-attribute 'org-level-8 nil :height 1.1))
+   )
+
+  )
+
+;; "☯☄♉⛬☆★☮☉☞✑"
+;; ("⛬" "✨" "✥" "✠" "✑" "✧" "☆" "★" "☉")
 (after! org-superstar
-  (setq org-superstar-headline-bullets-list '("☯")))
+  (setq org-superstar-headline-bullets-list '("⛬" "✨" "✥" "✠" "✑" "✧" "☆" "★" "☉")))
