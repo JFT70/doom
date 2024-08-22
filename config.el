@@ -121,3 +121,12 @@
         :desc "Peek references" "gr" #'lsp-ui-peek-find-references))
 
 (setq warning-minimum-level 'error)
+
+(after! org
+  (map! :map org-mode-map
+        :n "M-j" #'org-metadown
+        :n "M-l" #'org-metaup))
+
+;; "⛬☄☆☯♉"
+(after! org-superstar
+  (setq org-superstar-headline-bullets-list '("☯")))
