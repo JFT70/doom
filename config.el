@@ -33,8 +33,9 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-;(setq doom-theme 'doom-one)
-(setq doom-theme 'doom-dracula)
+;; (setq doom-theme 'doom-one)
+;; (setq doom-theme 'doom-dracula)
+(setq doom-theme 'doom-rouge)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -88,10 +89,10 @@
 ;; they are implemented.
 
 
-;; (after! lsp-mode
-;;  (seq lsp-headerline-breadcrumb-enable t
-;;       lsp-enable-symbol-highlighting t
-;;       lsp-signature-auto-activate nil))
+(after! lsp-mode
+ (setq lsp-headerline-breadcrumb-enable t
+      lsp-enable-symbol-highlighting t
+      lsp-signature-auto-activate nil))
 
 (after! rustic
   (setq rustic-lsp-server 'rust-analyzer)
@@ -130,16 +131,18 @@
         :n "M-j" #'org-metadown
         :n "M-l" #'org-metaup)
 
+  (add-hook 'org-mode-hook 'org-display-outline-path)
+
   (cond
    ((eq system-type 'darwin)
-    (set-face-attribute 'org-level-1 nil :height 2.5 :family "Zapfino")
-    (set-face-attribute 'org-level-2 nil :height 2.5 :family "Apple Chancery")
-    (set-face-attribute 'org-level-3 nil :height 1.9 :family "Palatino")
-    (set-face-attribute 'org-level-4 nil :height 1.7 :family "Times New Roman" :weight 'bold)
-    (set-face-attribute 'org-level-5 nil :height 1.5 :family "Times New Roman" :weight 'bold)
+    (set-face-attribute 'org-level-1 nil :height 1.9 :family "Palatino" :overline t :underline t)
+    (set-face-attribute 'org-level-2 nil :height 1.7 :family "Palatino")
+    (set-face-attribute 'org-level-3 nil :height 1.6 :family "Palatino")
+    (set-face-attribute 'org-level-4 nil :height 1.5 :family "Times New Roman" :weight 'bold)
+    (set-face-attribute 'org-level-5 nil :height 1.4 :family "Times New Roman" :weight 'bold)
     (set-face-attribute 'org-level-6 nil :height 1.3 :family "Times New Roman" :slant 'italic)
     (set-face-attribute 'org-level-7 nil :height 1.2 :family "Times New Roman")
-    (set-face-attribute 'org-level-8 nil :height 1.1 :family "Arial"))
+    (set-face-attribute 'org-level-8 nil :height 1.1 :family "Times New Roman"))
    (t
     (set-face-attribute 'org-level-1 nil :height 2.5)
     (set-face-attribute 'org-level-2 nil :height 2.5)
@@ -155,5 +158,7 @@
 
 ;; "☯☄♉⛬☆★☮☉☞✑"
 ;; ("⛬" "✨" "✥" "✠" "✑" "✧" "☆" "★" "☉")
+;; (after! org-superstar
+;;   (setq org-superstar-headline-bullets-list '("⛬" "✨" "✥" "✠" "✑" "✧" "☆" "★" "☉")))
 (after! org-superstar
-  (setq org-superstar-headline-bullets-list '("⛬" "✨" "✥" "✠" "✑" "✧" "☆" "★" "☉")))
+  (setq org-superstar-headline-bullets-list '("☯" "⛬" "✥" "✠" "✑" "✧" "☆" "★" "☉")))
