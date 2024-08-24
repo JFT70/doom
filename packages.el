@@ -54,3 +54,5 @@
 (package! rustic)
 
 (package! flycheck)
+
+(package! org-appear)

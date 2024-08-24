@@ -131,7 +131,10 @@
         :n "M-j" #'org-metadown
         :n "M-l" #'org-metaup)
 
-  (add-hook 'org-mode-hook 'org-display-outline-path)
+  (add-hook! 'org-mode-hook #'org-display-outline-path #'org-appear-mode)
+
+  (setq! org-ellipsis " ..."
+         org-hide-emphasis-markers t)
 
   (cond
    ((eq system-type 'darwin)
