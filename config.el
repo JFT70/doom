@@ -173,6 +173,8 @@
 
   (add-hook! 'org-mode-hook #'org-display-outline-path #'org-appear-mode)
 
+  (add-to-list 'org-src-lang-modes '("plantuml" . plantuml))
+
   (setq! org-ellipsis " ..."
          org-hide-emphasis-markers t)
 
@@ -205,3 +207,13 @@
 ;;   (setq org-superstar-headline-bullets-list '("⛬" "✨" "✥" "✠" "✑" "✧" "☆" "★" "☉")))
 (after! org-superstar
   (setq org-superstar-headline-bullets-list '("☯" "⛬" "✥" "✠" "✑" "✧" "☆" "★" "☉")))
+
+(setq highlight-indent-guides-responsive 'stack)
+
+;; (setq plantuml-server-url "http://localhost:8100/plantuml")
+(defun my/plantuml ()
+  (let ()
+    (setq plantuml-server-url "http://localhost:8100")
+    (plantuml-set-exec-mode 'server)))
+
+(add-hook 'plantuml-mode-hook #'my/plantuml)
