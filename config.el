@@ -35,7 +35,12 @@
 ;; `load-theme' function. This is the default:
 ;; (setq doom-theme 'doom-one)
 ;; (setq doom-theme 'doom-dracula)
-(setq doom-theme 'doom-rouge)
+;; (setq doom-theme 'doom-rouge)
+(setq doom-theme 'catppuccin-theme)
+
+;; Catppuccin Theme Variations: 'frappe, 'latte, 'macchiato, or 'mocha
+(setq catppuccin-flavor 'mocha)
+;; (catppuccin-reload)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -45,16 +50,20 @@
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
 
-(when (display-graphic-p)
-  (add-to-list 'default-frame-alist '(width . 132))   ;; Set the width (in character columns)
-  (add-to-list 'default-frame-alist '(height . 50)))  ;; Set the height (in lines)
+;; (when (display-graphic-p)
+;;   (add-to-list 'default-frame-alist '(width . 132))   ;; Set the width (in character columns)
+;;   (add-to-list 'default-frame-alist '(height . 50)))  ;; Set the height (in lines)
 
-;(defun my/set-default-window-size ()
-;  (let ((width 132)
-;        (height 50))
-;    (unless (frame-parameter nil 'fullscreen))))
-;
-;(add-hook 'window-setup-hook 'my/set-default-window-size)
+(defun my/set-default-window-size ()
+ (let ((width 132)
+       (height 50))
+   (unless (frame-parameter nil 'fullscreen))))
+
+(add-hook 'window-setup-hook 'my/set-default-window-size)
+
+;; Keyboards mapping
+(map! :leader
+      :desc "Ediff Buffers" "e b" #'ediff-buffers)
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.

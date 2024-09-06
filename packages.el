@@ -56,3 +56,5 @@
 (package! flycheck)
 
 (package! org-appear)
+
+(package! catppuccin-theme)
