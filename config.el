@@ -161,7 +161,7 @@
         :desc "Peek definition" "gd" #'lsp-ui-peek-find-definitions
         :desc "Peek references" "gr" #'lsp-ui-peek-find-references))
 
-(setq warning-minimum-level 'error)
+(setq warning-minimum-level :error)
 
 ;;
 ;; Org-Mode Configuration
