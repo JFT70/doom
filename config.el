@@ -34,9 +34,9 @@
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
 ;; (setq doom-theme 'doom-one)
-;; (setq doom-theme 'doom-dracula)
+(setq doom-theme 'doom-dracula)
 ;; (setq doom-theme 'doom-rouge)
-(setq doom-theme 'catppuccin-theme)
+;;(setq doom-theme 'catppuccin-theme)
 
 ;; Catppuccin Theme Variations: 'frappe, 'latte, 'macchiato, or 'mocha
 (setq catppuccin-flavor 'mocha)
@@ -208,7 +208,15 @@
 (after! org-superstar
   (setq org-superstar-headline-bullets-list '("☯" "⛬" "✥" "✠" "✑" "✧" "☆" "★" "☉")))
 
-(setq highlight-indent-guides-responsive 'stack)
+(after! highlight-indent-guides
+  (setq! highlight-indent-guides-method 'character
+         highlight-indent-guides-responsive 'stack
+         highlight-indent-guides-auto-top-character-face-perc 99
+         highlight-indent-guides-auto-stack-character-face-perc 40
+         highlight-indent-guides-auto-odd-face-perc 0
+         highlight-indent-guides-auto-even-face-perc 0
+        )
+  )
 
 ;; (setq plantuml-server-url "http://localhost:8100/plantuml")
 (defun my/plantuml ()
