@@ -58,3 +58,5 @@
 (package! org-appear)
 
 (package! catppuccin-theme)
+
+(package! lsp-treemacs)
