@@ -105,6 +105,7 @@
        (when (byte-code-function-p bytecode)
          (funcall bytecode))))
    (apply old-fn args)))
+
 (advice-add (if (progn (require 'json)
                        (fboundp 'json-parse-buffer))
                 'json-parse-buffer
@@ -126,13 +127,15 @@
           (message "Using emacs-lsp-booster for %s!" orig-result)
           (cons "emacs-lsp-booster" orig-result))
       orig-result)))
+
 (advice-add 'lsp-resolve-final-command :around #'lsp-booster--advice-final-command)
 
 
 (after! lsp-mode
- (setq lsp-headerline-breadcrumb-enable t
-      lsp-enable-symbol-highlighting t
-      lsp-signature-auto-activate nil))
+  (setq lsp-headerline-breadcrumb-enable t
+        lsp-enable-symbol-highlighting t
+        lsp-signature-auto-activate nil)
+  (add-hook 'c++-mod-hook #'lsp))
 
 (after! rustic
   (setq rustic-lsp-server 'rust-analyzer)
@@ -148,6 +151,7 @@
   ;; Enable the UI features you want
   (setq lsp-ui-sideline-enable t)  ;; Show sideline info
   (setq lsp-ui-doc-enable t)        ;; Show documentation in a separate window
+  (setq lsp-ui-doc-max-height 40)        ;; Show documentation in a separate window
   (setq lsp-ui-peek-enable t)       ;; Enable peek feature
   (setq lsp-ui-flycheck-enable t)   ;; Show flycheck errors
   (setq lsp-ui-sideline-show-diagnostics t)
@@ -213,6 +217,8 @@
          highlight-indent-guides-responsive 'stack
          highlight-indent-guides-auto-top-character-face-perc 99
          highlight-indent-guides-auto-stack-character-face-perc 40
+         highlight-indent-guides-auto-stack-even-face-perc 20
+         highlight-indent-guides-auto-stack-even-face-perc 20
          highlight-indent-guides-auto-odd-face-perc 0
          highlight-indent-guides-auto-even-face-perc 0
         )
