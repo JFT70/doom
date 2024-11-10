@@ -51,9 +51,12 @@
 
 (package! lsp-ui)
 
-(package! rustic)
+(package! ldap-mode)
 
 (package! flycheck)
+
+(package! cargo)
+(package! rustic)
 
 (package! org-appear)
 
