@@ -239,3 +239,7 @@
               (buffer-face-mode t)) )
   )
 
+(after! cmake-id
+  (cmake-ide-setup)
+  )
+

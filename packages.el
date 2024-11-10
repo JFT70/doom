@@ -63,3 +63,5 @@
 
 ;;(package! vterm)
 
+(package! cmake-mode)
+(package! cmake-ide)
