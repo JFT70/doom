@@ -231,3 +231,11 @@
     (plantuml-set-exec-mode 'server)))
 
 (add-hook 'plantuml-mode-hook #'my/plantuml)
+
+(after! vterm
+  (add-hook 'vterm-mode-hook
+            (lambda ()
+              (set (make-local-variable 'buffer-face-mode-face) '(:family  "CaskaydiaCove Nerd Font-14"))
+              (buffer-face-mode t)) )
+  )
+

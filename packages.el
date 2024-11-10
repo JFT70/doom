@@ -60,3 +60,6 @@
 (package! catppuccin-theme)
 
 (package! lsp-treemacs)
+
+;;(package! vterm)
+
