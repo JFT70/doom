@@ -243,3 +243,28 @@
   (cmake-ide-setup)
   )
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Code To The Moon (aka Ken)
+;; -----------------------------
+;; Extra config
+;;
+;; https://github.com/MoonKraken/dotfiles/blob/master/.doom.d/config.el
+
+(defun buffer/insert-filename ()
+  "Insert file name of current buffer at current point"
+  (interactive)
+  (insert (buffer-file-name (current-buffer))))
+
+;; Activate Python VIRTUELENV
+;;(pythonic-activate "~/some_path")
+
+;; Set which Python interpreter in org-babel
+;;(setq org-babel-python-command "full_path?! in Ken example")
+
+;; Windows wrap around!
+(setq windmove-wrap-around t)
+
+;; company-mode...
+
+;; ?! WTH is that ?
+;;(mac-auto-operator-composition-mode)
