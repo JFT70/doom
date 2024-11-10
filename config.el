@@ -59,7 +59,7 @@
        (height 50))
    (unless (frame-parameter nil 'fullscreen))))
 
-(add-hook 'window-setup-hook 'my/set-default-window-size)
+(add-hook 'window-setup-hook #'my/set-default-window-size)
 
 ;; Keyboards mapping
 (map! :leader
